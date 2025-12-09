@@ -1,6 +1,5 @@
 import { ResponsivePie, PieSvgProps, DefaultRawDatum } from "@nivo/pie";
 import React from "react";
-import randomcolor from "randomcolor";
 import { COLOURS } from "@util";
 
 const isWindowARVertical = typeof window !== "undefined" && window.innerWidth / window.innerHeight < 1;
