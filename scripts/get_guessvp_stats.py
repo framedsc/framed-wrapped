@@ -40,6 +40,6 @@ async def getLastYearMessages(year):
 @bot.event
 async def on_ready():
   print("woke up")
-  await getLastYearMessages(2022)
+  await getLastYearMessages(2025)
 
 bot.run(TOKEN)

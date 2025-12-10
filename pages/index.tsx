@@ -97,9 +97,10 @@ const Home = () => {
             </p>
           </div>
         </div>
-        { YearCover(2024, true) }
+        { YearCover(2025, true) }
       </div>
       <div className='Covers wrapper' style={ coverFrameStyle }>
+        { YearCover(2024) }
         { YearCover(2023) }
         { YearCover(2022) }
         { YearCover(2021) }

@@ -34,7 +34,7 @@ async def getLastYearMessages(year):
     #pbar = tqdm(desc="Processing", unit=" items", position=0, leave=True)
     
     # async for message in sys_channel.history(limit=20, after=datetime.datetime(year, 1, 1, 0, 0, 0)):
-    async for message in sys_channel.history(limit=None, after=datetime.datetime(year, 2, 20, 0, 0, 0), before=datetime.datetime(year + 1, 1, 1, 0, 0, 0)):
+    async for message in sys_channel.history(limit=None, after=datetime.datetime(year, 1, 1, 0, 0, 0), before=datetime.datetime(year + 1, 1, 1, 0, 0, 0)):
       if len(message.attachments) == 0:
           continue
 
@@ -143,6 +143,6 @@ async def getgamename(message):
 @bot.event
 async def on_ready():
   print("woke up")
-  await getLastYearMessages(2023)
+  await getLastYearMessages(2025)
 
 bot.run(TOKEN)

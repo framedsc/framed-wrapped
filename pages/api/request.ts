@@ -7,6 +7,9 @@ export const getHofImages = () => axios.get(`${IMAGESAPI}?timestamp=${timestamp}
 export const getHofAuthors = () => axios.get(`${AUTHORSAPI}?timestamp=${timestamp}`);
 export const getSysImages = (year: number) => {
     switch(year) {
+        case 2025: { 
+          return axios.get(`sysdb2025.json?timestamp=${timestamp}`);
+        }
         case 2024: { 
           return axios.get(`sysdb2024.json?timestamp=${timestamp}`);
         }
