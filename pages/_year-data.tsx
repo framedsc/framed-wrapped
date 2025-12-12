@@ -876,7 +876,7 @@ export default function WrapYear(year: number, flavourText: { intro: any; top10s
             setCalendarDatum(undefined);
           }}
         >
-          {calendarDatum && <ModalContent data={calendarDatum} />} #test
+          {calendarDatum && <ModalContent data={calendarDatum} />}
         </Modal>
         : null
       }
