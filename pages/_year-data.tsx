@@ -816,21 +816,11 @@ export default function WrapYear(year: number, flavourText: { intro: any; top10s
                             }}
                           >
                             <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/90 via-black/60 to-transparent z-20">
-                              <div className="flex items-start justify-between">
-                                <div className="flex-1">
-                                  <div className="flex items-center gap-2 mb-2">
-                                    <span className={`text-3xl ${medalColors[index]}`}>
-                                      {medalEmojis[index]}
-                                    </span>
-                                    <div>
-                                      <p className="text-xl font-bold text-white leading-none">
-                                        {item.score}
-                                      </p>
-                                      <p className="text-white/60 text-xs font-medium">
-                                        votes
-                                      </p>
-                                    </div>
-                                  </div>
+                              <div className="flex items-center gap-3">
+                                <span className={`text-3xl ${medalColors[index]}`}>
+                                  {medalEmojis[index]}
+                                </span>
+                                <div>
                                   <p className="text-framed-white font-semibold text-base mb-1">
                                     {item.gameName}
                                   </p>
@@ -928,21 +918,11 @@ export default function WrapYear(year: number, flavourText: { intro: any; top10s
                               }}
                             >
                               <div className="absolute bottom-0 left-0 right-0 p-4 md:p-6 bg-gradient-to-t from-black/90 via-black/60 to-transparent z-20">
-                                <div className="flex items-start justify-between">
-                                  <div className="flex-1">
-                                    <div className="flex items-center gap-2 md:gap-3 mb-2">
-                                      <span className={`text-3xl md:text-5xl ${medalColors[index]}`}>
-                                        {medalEmojis[index]}
-                                      </span>
-                                      <div>
-                                        <p className="text-xl md:text-3xl font-bold text-white leading-none">
-                                          {item.score}
-                                        </p>
-                                        <p className="text-white/60 text-xs md:text-sm font-medium">
-                                          votes
-                                        </p>
-                                      </div>
-                                    </div>
+                                <div className="flex items-center gap-3 md:gap-4">
+                                  <span className={`text-3xl md:text-5xl ${medalColors[index]}`}>
+                                    {medalEmojis[index]}
+                                  </span>
+                                  <div>
                                     <p className="text-framed-white font-semibold text-base md:text-xl mb-1">
                                       {item.gameName}
                                     </p>
