@@ -124,6 +124,7 @@ export default function WrapYear(year: number, flavourText: { intro: any; top10s
     "Top 10 Games in the Hall of Framed": useRef<HTMLDivElement>(null),
     "Most Active Day in Share Your Shot": useRef<HTMLDivElement>(null),
     "Most Active Day in the Hall of Framed": useRef<HTMLDivElement>(null),
+    "Top 3 Shots of the Year": useRef<HTMLDivElement>(null),
     "Daily Share Your Shot": useRef<HTMLDivElement>(null),
     "Daily Hall of Framed": useRef<HTMLDivElement>(null),
     "Guess the VP yearly leadboard": useRef<HTMLDivElement>(null),
@@ -210,6 +211,12 @@ export default function WrapYear(year: number, flavourText: { intro: any; top10s
     })
     .filter((item) => !!item.thumbnailUrl);
 
+      const top3Shots = data.hof
+    .filter((shot) => !!shot.thumbnailUrl && !!shot.score)
+    .sort((a, b) => (b.score || 0) - (a.score || 0))
+    .slice(0, 3);
+
+
   const leaderboardData: LeaderboardEntry[] = guessTheVPData
   .map(([authorId, score]: [string, number]) => {
     // Find the author info by matching the authorId
@@ -258,7 +265,7 @@ export default function WrapYear(year: number, flavourText: { intro: any; top10s
         <main className="relative">
           <div className="relative z-10 bg-framed-black/60">
             <Container className="pt-20 md:pt-0">
-              <div className="min-h-screen md:flex md:items-center load transition-all -translate-y-10 opacity-0 duration-500 mb-8">
+              <div className="min-h-screen md:flex md:items-center load transition-all -translate-y-10 opacity-0 duration-1000 mb-8">
                 <div className="md:grid md:grid-cols-2 md:gap-x-16">
                   <div className="flex flex-col justify-center">
                     <img src={`${basePath}/recap-wsub-logo.svg`} style={ recapLogoStyle } alt="recap logo"/>
@@ -275,7 +282,7 @@ export default function WrapYear(year: number, flavourText: { intro: any; top10s
                         return (
                           <a
                             key={`${item.author}-${index}`}
-                            className="relative aspect-square overflow-hidden"
+                            className="relative aspect-square overflow-hidden load transition-all -translate-y-10 opacity-0 duration-1000"
                             href= { getHOFUrl(item) }
                             target="_blank"
                             rel="noreferrer"
@@ -297,9 +304,9 @@ export default function WrapYear(year: number, flavourText: { intro: any; top10s
                             <picture>
                               <img
                                 loading="lazy"
-                                className="load transition-all -translate-y-10 opacity-0 duration-500 rounded-md object-cover w-full h-full aspect-square"
+                                className="rounded-md object-cover w-full h-full aspect-square"
                                 alt={item.gameName}
-                                src={item.thumbnailUrl}
+                                src={`${item.thumbnailUrl}?width=600&height=600`}
                                 //src={ index === 0 ? item.shotUrl : item.thumbnailUrl}
                               />
                             </picture>
@@ -310,14 +317,14 @@ export default function WrapYear(year: number, flavourText: { intro: any; top10s
                   </div>
                 </div>
               </div>
-              <div className="min-h-screen flex flex-col justify-center load transition-all -translate-y-10 opacity-0 duration-500 mb-8">
+              <div className="min-h-screen flex flex-col justify-center load transition-all -translate-y-10 opacity-0 duration-1000 mb-8">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16">
                   <div className="hidden md:grid grid-cols-3" style = { imageShadowStyle }>
                     {categoriesImages.map((item, index) => {
                       return (
                         <a
                           key={`${item.author}-${index}`}
-                          className="relative overflow-hidden aspect-auto"
+                          className="relative overflow-hidden aspect-auto load transition-all -translate-y-10 opacity-0 duration-1000"
                           href= { getHOFUrl(item) }
                           target="_blank"
                           rel="noreferrer"
@@ -340,7 +347,7 @@ export default function WrapYear(year: number, flavourText: { intro: any; top10s
                             <img
                               loading="lazy"
                               className={`
-                            load transition-all -translate-y-10 opacity-0 duration-500 object-cover h-full
+                            object-cover h-full
                             ${
                               index === 0
                                 ? "rounded-tl-md rounded-bl-md"
@@ -350,10 +357,7 @@ export default function WrapYear(year: number, flavourText: { intro: any; top10s
                             }
                             `}
                               alt={item.gameName}
-                              src={`${item.thumbnailUrl?.replace(
-                                "https://cdn.discordapp.com",
-                                "https://media.discordapp.net",
-                              )}?width=600&height=600`}
+                              src={`${item.thumbnailUrl}?width=600&height=600`}
                             />
                           </picture>
                         </a>
@@ -387,7 +391,7 @@ export default function WrapYear(year: number, flavourText: { intro: any; top10s
                 </div>
               </div>
               <div
-                className="min-h-screen flex items-center load transition-all -translate-y-10 opacity-0 duration-500 mb-8"
+                className="min-h-screen flex items-center load transition-all -translate-y-10 opacity-0 duration-1000 mb-8"
                 ref={segments["Top 10 Games in Share Your Shot"]}
               >
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16">
@@ -435,7 +439,7 @@ export default function WrapYear(year: number, flavourText: { intro: any; top10s
                           <a
                             key={`${item.author}-${index}`}
                             className={`
-                            relative load transition-all -translate-y-10 opacity-0 duration-500
+                            relative load transition-all -translate-y-10 opacity-0 duration-1000
                             ${index === 0 ? "col-span-1 row-span-2" : ""}
                           `}
                             href= { getHOFUrl(item) }
@@ -467,7 +471,7 @@ export default function WrapYear(year: number, flavourText: { intro: any; top10s
                                 loading="lazy"
                                 className="rounded-md object-cover w-full h-full aspect-square"
                                 alt={item.gameName}
-                                src={item.thumbnailUrl}
+                                src={`${item.thumbnailUrl}?width=600&height=600`}
                                 //src={ index === 0 ? item.shotUrl : item.thumbnailUrl}
                               />
                             </picture>
@@ -479,7 +483,7 @@ export default function WrapYear(year: number, flavourText: { intro: any; top10s
                 </div>
               </div>
               <div
-                className="min-h-screen flex items-center load transition-all -translate-y-10 opacity-0 duration-500 mb-8"
+                className="min-h-screen flex items-center load transition-all -translate-y-10 opacity-0 duration-1000 mb-8"
                 ref={segments["Top 10 Games in the Hall of Framed"]}
               >
                 <div className="grid md:grid-rows-none md:grid-cols-2 gap-x-16">
@@ -490,7 +494,7 @@ export default function WrapYear(year: number, flavourText: { intro: any; top10s
                           <a
                             key={`${item.author}-${index}`}
                             className={`
-                            relative load transition-all -translate-y-10 opacity-0 duration-500
+                            relative load transition-all -translate-y-10 opacity-0 duration-1000
                             ${index === 0 ? "col-span-1 row-span-2" : ""}
                           `}
                             href= { getHOFUrl(item) }
@@ -522,7 +526,7 @@ export default function WrapYear(year: number, flavourText: { intro: any; top10s
                                 loading="lazy"
                                 className="rounded-md object-cover w-full h-full aspect-square"
                                 alt={item.gameName}
-                                src={item.thumbnailUrl}
+                                src={`${item.thumbnailUrl}?width=600&height=600`}
                                 //src={ index === 0 ? item.shotUrl : item.thumbnailUrl}
                               />
                             </picture>
@@ -567,7 +571,7 @@ export default function WrapYear(year: number, flavourText: { intro: any; top10s
                 </div>
               </div>
               <div
-                className="min-h-screen flex items-center load transition-all -translate-y-10 opacity-0 duration-500 mb-16"
+                className="min-h-screen flex items-center load transition-all -translate-y-10 opacity-0 duration-1000 mb-16"
                 ref={segments["Most Active Day in Share Your Shot"]}
               >
                 <div className="grid grid-rows-2 md:grid-rows-none md:grid-cols-2 gap-x-16">
@@ -619,7 +623,7 @@ export default function WrapYear(year: number, flavourText: { intro: any; top10s
                           <a
                             key={`${item.author}-${index}`}
                             className={`
-                            relative load transition-all -translate-y-10 opacity-0 duration-500
+                            relative load transition-all -translate-y-10 opacity-0 duration-1000
                             ${index === 0 ? "col-span-1 row-span-2" : ""}
                           `}
                             href= { getHOFUrl(item) }
@@ -651,7 +655,7 @@ export default function WrapYear(year: number, flavourText: { intro: any; top10s
                                 loading="lazy"
                                 className="rounded-md object-cover w-full h-full aspect-square"
                                 alt={item.gameName}
-                                src={item.thumbnailUrl}
+                                src={`${item.thumbnailUrl}?width=600&height=600`}
                                 //src={ index === 0 ? item.shotUrl : item.thumbnailUrl}
                               />
                             </picture>
@@ -663,7 +667,7 @@ export default function WrapYear(year: number, flavourText: { intro: any; top10s
                 </div>
               </div>
               <div
-                className="min-h-screen flex items-center load transition-all -translate-y-10 opacity-0 duration-500 mb-16 md:mb-0"
+                className="min-h-screen flex items-center load transition-all -translate-y-10 opacity-0 duration-1000 mb-16 md:mb-0"
                 ref={segments["Most Active Day in the Hall of Framed"]}
               >
                 <div className="grid grid-rows-2 md:grid-rows-none md:grid-cols-2 gap-x-16">
@@ -674,7 +678,7 @@ export default function WrapYear(year: number, flavourText: { intro: any; top10s
                           <a
                             key={`${item.author}-${index}`}
                             className={`
-                            relative load transition-all -translate-y-10 opacity-0 duration-500
+                            relative load transition-all -translate-y-10 opacity-0 duration-1000
                             ${index === 0 ? "col-span-1 row-span-2" : ""}
                           `}
                             href= { getHOFUrl(item) }
@@ -706,7 +710,7 @@ export default function WrapYear(year: number, flavourText: { intro: any; top10s
                                 loading="lazy"
                                 className="rounded-md object-cover w-full h-full aspect-square"
                                 alt={item.gameName}
-                                src={item.thumbnailUrl}
+                                src={`${item.thumbnailUrl}?width=600&height=600`}
                                 //src={ index === 0 ? item.shotUrl : item.thumbnailUrl}
                               />
                             </picture>
@@ -759,8 +763,152 @@ export default function WrapYear(year: number, flavourText: { intro: any; top10s
                 </div>
               </div>
 
+                 <div
+                className="min-h-screen flex items-center load transition-all -translate-y-10 opacity-0 duration-1000 mb-16"
+                ref={segments["Top 3 Shots of the Year"]}
+              >
+                <div className="w-full">
+                  <div className="text-center mb-12">
+                    <h2 className="md:text-6xl text-3xl font-semibold mb-8">
+                      Top 3 Shots of the Year
+                    </h2>
+                    <p className="max-w-3xl mx-auto">Every year, the community rallies around exceptional shots that capture the essence of virtual photography. These are the most celebrated shots of {year}, earning the highest number of votes from our members.</p>
+                  </div>
+                  {(() => {
+                    const medalColors = ["text-yellow-400", "text-gray-300", "text-amber-600"];
+                    const medalEmojis = ["🥇", "🥈", "🥉"];
+                    
+                    const ShotOverlay = ({ item, index, isMobile = false }: { item: any, index: number, isMobile?: boolean }) => (
+                      <div className={`absolute bottom-0 left-0 right-0 ${isMobile ? 'p-4' : 'p-6'} bg-gradient-to-t from-black/90 via-black/60 to-transparent z-20`}>
+                        <div className={`flex items-center ${isMobile ? 'gap-3' : 'gap-4'}`}>
+                          <span className={`${isMobile ? 'text-3xl' : 'text-5xl'} ${medalColors[index]}`}>
+                            {medalEmojis[index]}
+                          </span>
+                          <div>
+                            <p className={`text-framed-white font-semibold ${isMobile ? 'text-base' : 'text-xl'} mb-1`}>
+                              {item.gameName}
+                            </p>
+                            <p className={`text-white/75 ${isMobile ? 'text-xs' : 'text-sm'}`}>
+                              by {item.author}
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    );
+
+                    return (
+                      <>
+                        {/* Mobile Layout */}
+                        <div className="md:hidden flex flex-col gap-6">
+                          {top3Shots.map((item, index) => (
+                            <a
+                              key={`mobile-${item.author}-${item.epochTime}`}
+                              className="block w-full load transition-all -translate-y-10 opacity-0 duration-1000"
+                              href={getHOFUrl(item)}
+                              target="_blank"
+                              rel="noreferrer"
+                            >
+                              <div
+                                className="relative rounded-lg overflow-hidden"
+                                style={{ filter: 'drop-shadow(0px 5px 15px #00000077)' }}
+                              >
+                                <ShotOverlay item={item} index={index} isMobile={true} />
+                                <picture>
+                                  <img
+                                    loading="lazy"
+                                    className="rounded-lg w-full h-auto"
+                                    alt={item.gameName}
+                                    src={item.shotUrl}
+                                  />
+                                </picture>
+                              </div>
+                            </a>
+                          ))}
+                        </div>
+
+                        {/* Desktop Layout */}
+                        <div className="hidden md:grid md:grid-cols-3 gap-8">
+                          {top3Shots.map((item, index) => {
+                            const orderClass = index === 0 ? "md:order-2" : index === 1 ? "md:order-1" : "md:order-3";
+                            const marginStyle = index === 0 ? {} : index === 1 ? {marginTop: '4rem'} : {marginTop: '6rem'};
+
+                            const imageAspectRatio = item.width && item.height ? item.width / item.height : 16/9;
+                            const croppedAspectRatio = 3/4;
+                            const baseHeight = 600;
+                            const croppedWidth = baseHeight * croppedAspectRatio;
+                            const isLandscape = imageAspectRatio > croppedAspectRatio;
+                            const fullWidth = isLandscape ? baseHeight * imageAspectRatio : croppedWidth;
+                            const fullHeight = isLandscape ? baseHeight : croppedWidth / imageAspectRatio;
+
+                            return (
+                              <div
+                                key={`${item.author}-${item.epochTime}`}
+                                className={`relative ${orderClass}`}
+                                style={{
+                                  ...marginStyle,
+                                  width: `${croppedWidth}px`,
+                                  height: `${baseHeight}px`,
+                                  zIndex: 0,
+                                }}
+                                onMouseEnter={(e) => { e.currentTarget.style.zIndex = '50'; }}
+                                onMouseLeave={(e) => {
+                                  const target = e.currentTarget;
+                                  setTimeout(() => { if (target?.style) target.style.zIndex = '0'; }, 500);
+                                }}
+                              >
+                                <a
+                                  className="block absolute overflow-visible load transition-all -translate-y-10 opacity-0 duration-1000 group"
+                                  href={getHOFUrl(item)}
+                                  target="_blank"
+                                  rel="noreferrer"
+                                  style={{
+                                    left: '50%',
+                                    top: '50%',
+                                    transform: 'translate(-50%, -50%)',
+                                  }}
+                                >
+                                  <div
+                                    className="relative rounded-lg overflow-hidden transition-all duration-500"
+                                    style={{
+                                      height: `${baseHeight}px`,
+                                      width: `${croppedWidth}px`,
+                                      filter: 'drop-shadow(0px 5px 5px #00000077)',
+                                      transition: 'width 0.5s ease-in-out, height 0.5s ease-in-out, filter 0.5s ease-in-out',
+                                    }}
+                                    onMouseEnter={(e) => {
+                                      e.currentTarget.style.width = `${fullWidth}px`;
+                                      e.currentTarget.style.height = `${fullHeight}px`;
+                                      e.currentTarget.style.filter = 'drop-shadow(0px 20px 40px #000000cc)';
+                                    }}
+                                    onMouseLeave={(e) => {
+                                      e.currentTarget.style.width = `${croppedWidth}px`;
+                                      e.currentTarget.style.height = `${baseHeight}px`;
+                                      e.currentTarget.style.filter = 'drop-shadow(0px 5px 5px #00000077)';
+                                    }}
+                                  >
+                                    <ShotOverlay item={item} index={index} />
+                                    <picture>
+                                      <img
+                                        loading="lazy"
+                                        className="rounded-lg object-cover w-full h-full"
+                                        alt={item.gameName}
+                                        src={item.shotUrl}
+                                      />
+                                    </picture>
+                                  </div>
+                                </a>
+                              </div>
+                            );
+                          })}
+                        </div>
+                      </>
+                    );
+                  })()}
+                </div>
+              </div>
+
               <div
-                className="min-h-screen flex items-center load transition-all -translate-y-10 opacity-0 duration-500 mb-8"
+                className="min-h-screen flex items-center load transition-all -translate-y-10 opacity-0 duration-1000 mb-8"
                 ref={segments["Guess the VP yearly leadboard"]}
                 style={ {display: leaderboardData.length === 0 ? 'none' : 'block'} }
               >
