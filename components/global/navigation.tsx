@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Container } from "./container";
 import CSS from 'csstype';
 import { basePath } from '../../next.config';
@@ -12,9 +12,57 @@ const recapLogoStyle: CSS.Properties = {
 
 export const Navigation = () => {
   const router = useRouter();
+  const [isVisible, setIsVisible] = useState(true);
+  const [isMobile, setIsMobile] = useState(false);
+  const lastScrollY = useRef(0);
+  const scrollThreshold = 10; // Minimum scroll distance to trigger hide/show
+
+  useEffect(() => {
+    // Check if mobile on mount and resize
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768); // Tailwind's md breakpoint
+    };
+
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+
+    const handleScroll = () => {
+      if (!isMobile) return; // Only on mobile
+
+      const currentScrollY = window.scrollY;
+      const scrollDifference = Math.abs(currentScrollY - lastScrollY.current);
+
+      // Only trigger if scrolled more than threshold
+      if (scrollDifference < scrollThreshold) return;
+
+      if (currentScrollY > lastScrollY.current && currentScrollY > 80) {
+        // Scrolling down & past threshold
+        setIsVisible(false);
+      } else if (currentScrollY < lastScrollY.current) {
+        // Scrolling up
+        setIsVisible(true);
+      }
+
+      lastScrollY.current = currentScrollY;
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', checkMobile);
+    };
+  }, [isMobile]);
 
   return (
-    <nav className="w-full fixed top-0 py-3 bg-black/30 backdrop-blur-lg border-b border-b-white/10 shadow-md text-white z-50">
+    <nav
+      className="w-full fixed py-3 bg-black/30 backdrop-blur-lg border-b border-b-white/10 shadow-md text-white z-50"
+      style={{
+        top: 0,
+        transform: isVisible ? 'translateY(0)' : 'translateY(-100%)',
+        transition: 'transform 0.3s ease-in-out',
+      }}
+    >
       <div style={ {marginLeft: '5vw'} }>
         <ul className="flex items-center">
           <li>
