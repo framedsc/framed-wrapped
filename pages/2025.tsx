@@ -1,6 +1,6 @@
 import WrapYear from "./_year-data";
 
-const year: number = 2024; //2025;
+const year: number = 2025;
 
 const flavourText = {
   intro: [`Another year has come and gone, and with it brought a whole host of new games to shoot
