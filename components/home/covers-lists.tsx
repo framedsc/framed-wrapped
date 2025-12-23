@@ -1,47 +1,36 @@
 export const covers2025 = [
-  {"shotUrl": "wrapped-images/covers/2025/1737006020_ALAN_WAKE_2_-_129.png", "author": "540875144277786624"},
-  {"shotUrl": "wrapped-images/covers/2025/1737908452.435_afop_2025-01-26_16-41-50.png", "author": "540875144277786624"},
-  {"shotUrl": "wrapped-images/covers/2025/1739730315.467_Avowed-Win64-Shipping_2025-02-16_15-25-09.png", "author": "540875144277786624"},
-  {"shotUrl": "wrapped-images/covers/2025/1741634998.801_ForeverWinter-Win64-Shipping_2025-03-10_20-58-29.png", "author": "540875144277786624"},
-  {"shotUrl": "wrapped-images/covers/2025/1742429564.295_KingdomCome_2025-03-17_06-39-46.png", "author": "540875144277786624"},
-  {"shotUrl": "wrapped-images/covers/2025/1745460742.902_OblivionRemastered-Win64-Shipping_2025_04_24_01_54_29_982.png", "author": "540875144277786624"},
-  {"shotUrl": "wrapped-images/covers/2025/1746364104.11_SkyrimSE_2025-03-28_11-46-57.png", "author": "540875144277786624"},
-  {"shotUrl": "wrapped-images/covers/2025/1749654464.67_SandFall-Win64-Shipping_2025-06-10_02-13-32.png", "author": "540875144277786624"},
-  {"shotUrl": "wrapped-images/covers/2025/1749745933.787_MetalEden-Win64-Shipping_2025-06-12_16-49-10.png", "author": "540875144277786624"},
-  {"shotUrl": "wrapped-images/covers/2025/1750203686.662_GhostOfTsushima_2025-06-16_12-19-16.png", "author": "540875144277786624"},
-  {"shotUrl": "wrapped-images/covers/2025/1750963188.235_2-12.png", "author": "540875144277786624"},
-  {"shotUrl": "wrapped-images/covers/2025/1761058110.167_inZOI-Win64-Shipping_2025-10-20_21-02-07-filled.png", "author": "540875144277786624"},
-  {"shotUrl": "wrapped-images/covers/2025/1763352424.334_Verden-Win64-Shipping_2025-11-13_15-11-01.png", "author": "540875144277786624"},
-  {"shotUrl": "wrapped-images/covers/2025/1764265490.885_Europa-Win64-Shipping_2025-11-27_16-00-26.png", "author": "540875144277786624"},
-  {"shotUrl": "wrapped-images/covers/2025/1739988738.81_TheGreatCircle_2025-02-20_00-04-58_stitch.png", "author": "540875144277786624"},
-  {"shotUrl": "wrapped-images/covers/2025/1741694969.653_Group_3-GTA5_Enhanced_2025-03-11_01-56-53_GTA5_Enhanced_2025-03-11_01-57-08-10_images_0000_copy.png", "author": "540875144277786624"},
-  {"shotUrl": "wrapped-images/covers/2025/1750028847.596_BloomRage_2025-06-12_01-06-31_824_edit.png", "author": "540875144277786624"},
-  {"shotUrl": "wrapped-images/covers/2025/1764910380.747_c2.png", "author": "540875144277786624"},
-  {"shotUrl": "wrapped-images/covers/2025/1741823530.686_KingdomCome_2025-03-08_06-39-49.png", "author": "540875144277786624"},
-  {"shotUrl": "wrapped-images/covers/2025/1744331060.237_KingdomCome_2025-03-18_06-26-48.png", "author": "540875144277786624"},
-  {"shotUrl": "wrapped-images/covers/2025/1756400996.033_Mgsdelta_Screenshot_2025.08.27_-_14.33.46.67.png", "author": "540875144277786624"},
+  {"shotUrl": "wrapped-images/covers/2025/1737006020_ALAN_WAKE_2_-_129.png", "author": "326792331049041922"},
+  {"shotUrl": "wrapped-images/covers/2025/1737908452.435_afop_2025-01-26_16-41-50.png", "author": "199118181082595329"},
+  {"shotUrl": "wrapped-images/covers/2025/1739730315.467_Avowed-Win64-Shipping_2025-02-16_15-25-09.png", "author": "142170955630772225"},
+  {"shotUrl": "wrapped-images/covers/2025/1742429564.295_KingdomCome_2025-03-17_06-39-46.png", "author": "80738520422944768"},
+  {"shotUrl": "wrapped-images/covers/2025/1745460742.902_OblivionRemastered-Win64-Shipping_2025_04_24_01_54_29_982.png", "author": "563078211676930078"},
+  {"shotUrl": "wrapped-images/covers/2025/1746364104.11_SkyrimSE_2025-03-28_11-46-57.png", "author": "365583928003788800"},
+  {"shotUrl": "wrapped-images/covers/2025/1749654464.67_SandFall-Win64-Shipping_2025-06-10_02-13-32.png", "author": "142170955630772225"},
+  {"shotUrl": "wrapped-images/covers/2025/1749745933.787_MetalEden-Win64-Shipping_2025-06-12_16-49-10.png", "author": "475318080679968795"},
+  {"shotUrl": "wrapped-images/covers/2025/1750203686.662_GhostOfTsushima_2025-06-16_12-19-16.png", "author": "80738520422944768"},
+  {"shotUrl": "wrapped-images/covers/2025/1750963188.235_2-12.png", "author": "727947925535195137"},
+  {"shotUrl": "wrapped-images/covers/2025/1761058110.167_inZOI-Win64-Shipping_2025-10-20_21-02-07-filled.png", "author": "310528138067181572"},
+  {"shotUrl": "wrapped-images/covers/2025/1763352424.334_Verden-Win64-Shipping_2025-11-13_15-11-01.png", "author": "475318080679968795"},
+  {"shotUrl": "wrapped-images/covers/2025/1739988738.81_TheGreatCircle_2025-02-20_00-04-58_stitch.png", "author": "220206083136946176"},
+  {"shotUrl": "wrapped-images/covers/2025/1741694969.653_Group_3-GTA5_Enhanced_2025-03-11_01-56-53_GTA5_Enhanced_2025-03-11_01-57-08-10_images_0000_copy.png", "author": "301881785426378762"},
+  {"shotUrl": "wrapped-images/covers/2025/1750028847.596_BloomRage_2025-06-12_01-06-31_824_edit.png", "author": "188691759470084097"},
+  {"shotUrl": "wrapped-images/covers/2025/1764910380.747_c2.png", "author": "475318080679968795"},
+  {"shotUrl": "wrapped-images/covers/2025/1744331060.237_KingdomCome_2025-03-18_06-26-48.png", "author": "80738520422944768"},
+  {"shotUrl": "wrapped-images/covers/2025/1756400996.033_Mgsdelta_Screenshot_2025.08.27_-_14.33.46.67.png", "author": "764427456856981544"},
+  {"shotUrl": "wrapped-images/covers/2025/1766066858.647_SandFall-Win64-Shipping_2025-12-17_22-31-55_799.png", "author": "149145360156196864"},
 
 
+  // extra
+  {"shotUrl": "wrapped-images/covers/2025/1765102346.353_eldenring_2025-12-06_06-46-41_490_After.png", "author": "374743167360303107"},
+  {"shotUrl": "wrapped-images/covers/2025/1747610266.433_GhostOfTsushima_2025-05-11_06-39-13.png", "author": "80738520422944768"},
+  {"shotUrl": "wrapped-images/covers/2025/1749038329.051_SandFall-Win64-Shipping_2025-05-31_15-46-47_811.png", "author": "149145360156196864"},
+  {"shotUrl": "wrapped-images/covers/2025/1750112254.417_BloomRage_2025-06-10_01-09-34_448_edit2.png", "author": "188691759470084097"},
 
 
-  
-
-
-
-
-
-  
-
-
+  //{"shotUrl": "wrapped-images/covers/2025/1764265490.885_Europa-Win64-Shipping_2025-11-27_16-00-26.png", "author": "540875144277786624"},
+  //{"shotUrl": "wrapped-images/covers/2025/1741823530.686_KingdomCome_2025-03-08_06-39-49.png", "author": "540875144277786624"},
+  //{"shotUrl": "wrapped-images/covers/2025/1741634998.801_ForeverWinter-Win64-Shipping_2025-03-10_20-58-29.png", "author": "540875144277786624"},
   //{"shotUrl": "wrapped-images/covers/2025/1757588761.287_Base_Profile_Screenshot_2025.08.28_-_14.59.09.33.png", "author": "540875144277786624"},
-
-
-
-
-  //{"shotUrl": "wrapped-images/covers/2025/1747610266.433_GhostOfTsushima_2025-05-11_06-39-13.png", "author": "540875144277786624"},
-  //{"shotUrl": "wrapped-images/covers/2025/1749038329.051_SandFall-Win64-Shipping_2025-05-31_15-46-47_811.png", "author": "540875144277786624"},
-  //{"shotUrl": "wrapped-images/covers/2025/1750112254.417_BloomRage_2025-06-10_01-09-34_448_edit2.png", "author": "540875144277786624"},
-
 
   
   //{"shotUrl": "wrapped-images/covers/2025/1739382812.481_Cyberpunk2077_2024-09-27_13-19-43-Edit-2400.png", "author": "540875144277786624"},
