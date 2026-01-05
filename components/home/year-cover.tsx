@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useState, RefObject } from "react";
 import CSS from "csstype";
 import { IShot } from "@types";
-import { covers2021, covers2022, covers2023, covers2024 } from "./covers-lists";
+import { covers2021, covers2022, covers2023, covers2024, covers2025 } from "./covers-lists";
 import { basePath } from "../../next.config";
 
 const getCovers = (year: number) => {
@@ -14,11 +14,14 @@ const getCovers = (year: number) => {
     }
     case 2023: {
       return covers2023;
-    }
-    case 2024: {
-      return covers2024;
-    }
-    default: {
+   } 
+   case 2024: { 
+    return covers2024;
+   } 
+   case 2025: {
+      return covers2025;
+   } 
+    default: { 
       return [];
     }
   }
@@ -222,7 +225,7 @@ export function YearCover(year: number, firstCover: boolean = false) {
     };
 
     const changeCoversEveryMs: number = 7500;
-    const numberOfPastCovers: number = 3;
+    const numberOfPastCovers: number = 4;
     const delay = firstCover
       ? changeCoversEveryMs
       : (year - 2020) * changeCoversEveryMs;
